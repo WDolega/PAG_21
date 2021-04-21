@@ -13,7 +13,7 @@ public class Ball {
     private int size; // e.g. 3,4,5 for football
     private int weight; // weight of the ball given in grams
     private double suggPrice; // suggested price of the ball in store given in PLN
-    private double radius; // radius of the ball given in centimetres
+    protected double radius; // radius of the ball given in centimetres - changed in inherited class
     private final Map<String, Integer> standardBall = new HashMap<>();
 
     /**
@@ -26,7 +26,7 @@ public class Ball {
      * @param suggPrice
      * @param radius
      */
-    public Ball(String material, String sport, String brand, int size, int weight, double suggPrice, double radius) {
+    public Ball(String material, String sport, String brand, int size, int weight, double suggPrice, double radius) { // builder
         this.material = material;
         this.sport = sport;
         this.brand = brand;
@@ -47,7 +47,7 @@ public class Ball {
      */
     public void setMaterial(String material) {
         this.material = material;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -55,7 +55,7 @@ public class Ball {
      */
     public void setSport(String sport) {
         this.sport = sport;
-    }
+    }  //shorter radius getter
 
     /**
      *
@@ -63,7 +63,7 @@ public class Ball {
      */
     public void setBrand(String brand) {
         this.brand = brand;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -71,7 +71,7 @@ public class Ball {
      */
     public void setSize(int size) {
         this.size = size;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -79,15 +79,14 @@ public class Ball {
      */
     public void setWeight(int weight) {
         this.weight = weight;
-    }
-
+    } //shorter radius getter
     /**
      *
      * @param suggPrice
      */
     public void setSuggPrice(double suggPrice) {
         this.suggPrice = suggPrice;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -103,7 +102,7 @@ public class Ball {
      */
     public void setRadius(double radius) {
         this.radius = radius;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -111,7 +110,7 @@ public class Ball {
      */
     public String getMaterial() {
         return material;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -119,7 +118,7 @@ public class Ball {
      */
     public String getSport() {
         return sport;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -127,7 +126,7 @@ public class Ball {
      */
     public String getBrand() {
         return brand;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -135,7 +134,7 @@ public class Ball {
      */
     public int getSize() {
         return size;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -143,7 +142,7 @@ public class Ball {
      */
     public int getWeight() {
         return weight;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -151,7 +150,7 @@ public class Ball {
      */
     public double getSuggPrice() {
         return suggPrice;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -159,7 +158,7 @@ public class Ball {
      */
     public double getRadius() {
         return radius;
-    }
+    } //shorter radius getter
 
     /**
      *
@@ -180,7 +179,7 @@ public class Ball {
     public void getInfo() {
         System.out.println(this.getSport() + " uses " + getClass().getSimpleName().toLowerCase() + "s made of a "
                 + this.getMaterial().toLowerCase());
-    }
+    } // function printing general information about ball
 
     /**
      *
@@ -192,7 +191,7 @@ public class Ball {
             }
         else
         return false;
-    }
+    } // function comparing size of created ball to standard size * boolean version
 
     public void checkStandard(){
         if (standardBall.containsKey(getSport())){
@@ -203,7 +202,7 @@ public class Ball {
             }
         }
         else { System.out.println("No record of the sport"); }
-    }
+    } // function comparing size of created ball to standard size * println version
 
     /**
      *
@@ -219,7 +218,7 @@ public class Ball {
                 Double.compare(ball.getSuggPrice(), getSuggPrice()) == 0 &&
                 Double.compare(ball.getRadius(), getRadius()) == 0 && Objects.equals(getMaterial(), ball.getMaterial())
                 && Objects.equals(getSport(), ball.getSport()) && Objects.equals(getBrand(), ball.getBrand());
-    }
+    } //objects comparison
 
     /**
      *
