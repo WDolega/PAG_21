@@ -1,15 +1,20 @@
+//authors: Wojciech Dołęga, Adam Ziętek;
+
 package com.example.ball;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 public class Ball {
-    private String material;
+    protected String material;
     private String sport;
-    private String brand;
-    private int size; // e.g. 3,4,5 for football
+    protected String brand;
+    protected int size; // e.g. 3,4,5 for football
     private int weight;
-    private double suggPrice;
-    private double radius;
+    protected double suggPrice;
+    protected double radius;
+    private Map<String, Integer> standardBall = new HashMap<>();
 
 
     public Ball(String material, String sport, String brand, int size, int weight, double suggPrice, double radius) {
@@ -20,6 +25,11 @@ public class Ball {
         this.weight = weight;
         this.suggPrice = suggPrice;
         this.radius = radius;
+        standardBall.put("Football", 5);
+        standardBall.put("Volleyball", 5);
+        standardBall.put("Basketball", 7);
+        standardBall.put("Handball", 3);
+        standardBall.put("American Football", 9);
     }
 
     public void setMaterial(String material) {
@@ -80,9 +90,9 @@ public class Ball {
 
     public String toString() {
         return "[" + getClass().getSimpleName() +
-                " material=" + getMaterial() + '\'' +
-                ", sport=" + getSport() + '\'' +
-                ", brand=" + getBrand() + '\'' +
+                " material=" + getMaterial() +
+                ", sport=" + getSport() +
+                ", brand=" + getBrand() +
                 ", size=" + getSize() +
                 ", weight[g]=" + getWeight() +
                 ", suggested price[zł]= " + getSuggPrice() +
@@ -91,11 +101,27 @@ public class Ball {
     }
 
     public void getInfo(String sport, String material) {
-        System.out.println(this.getSport() + " uses " + getClass().getSimpleName() + "s made of a " + this.getMaterial());
+        System.out.println(this.getSport() + " uses " + getClass().getSimpleName().toLowerCase() + "s made of a "
+                + this.getMaterial().toLowerCase());
     }
 
-    public void check() {
+    public boolean isStandard(){
+        if (standardBall.containsKey(sport)){
+            return size == standardBall.get(sport);
+            }
+        else
+        return false;
+    }
 
+    public void checkStandard(){
+        if (standardBall.containsKey(sport)){
+            if (size == standardBall.get(sport)){
+                System.out.println("The ball is standard");
+            }
+            else { System.out.println("The ball is non-standard");
+            }
+        }
+        else { System.out.println("No record of the sport"); }
     }
 
     @Override
