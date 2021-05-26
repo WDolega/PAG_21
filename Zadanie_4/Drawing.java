@@ -1,3 +1,7 @@
+/*
+    authors: Wojciech Dołęga, Adam Ziętek
+*/
+
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
